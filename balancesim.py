@@ -38,7 +38,7 @@ def state_derivatives(state_vector, t, params):
     f_1 = m_top * L * r * psidot * np.sin(psi)
     f_2 = m_top * 9.81 * L * np.sin(psi)
 
-    torque = 0 #TODO
+    torque = psidot*0.1 + psi*0.8 + omega*0.003 + theta*0.002
     F = np.array([[f_1 + torque], [f_2 - torque]])
 
     ddtheta_ddpsi = np.linalg.solve(M, F)
